@@ -2,7 +2,7 @@
 
 
 def line_count(infile):
-   with open(infile, 'r') as file:
+   with open(infile, 'README.md') as file:
         lines = file.readlines()
         num_lines = len(lines)
         print(f"Number of lines in {infile}: {num_lines}")
