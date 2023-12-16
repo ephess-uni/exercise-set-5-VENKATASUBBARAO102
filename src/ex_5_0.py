@@ -1,10 +1,10 @@
 """ex_5_0.py"""
 
 def line_count(infile):
-    with open(infile, 'r') as file:
+     with open(infile, 'r') as file:
         lines = file.readlines()
         num_lines = len(lines)
-        print(f"Number of lines in {infile}: {num_lines}", end='\n')
+        print(num_lines)
 
 if __name__ == "__main__":
     # get the utility function for path discovery
