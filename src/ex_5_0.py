@@ -1,9 +1,10 @@
 """ex_5_0.py"""
 
-
 def line_count(infile):
-    pass
-
+    with open(infile, 'r') as file:
+        lines = file.readlines()
+        num_lines = len(lines)
+        print(num_lines)  # Print only the number of lines without additional message
 
 if __name__ == "__main__":
     # get the utility function for path discovery
@@ -14,4 +15,5 @@ if __name__ == "__main__":
 
     # Test line_count with a file from the data directory
     data_directory = get_repository_root() / "data"
-    line_count(data_directory / "ex_5_2-data.csv")
+    count_file = data_directory / "ex_5_4-data.csv"
+    line_count(count_file)
