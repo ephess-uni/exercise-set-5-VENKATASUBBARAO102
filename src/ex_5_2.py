@@ -1,4 +1,4 @@
-""" ex_5_2.py
+"""ex_5_2.py
 This module contains an entry point that
 
 - loads data from a file `ex_5_2-data.csv` into a numpy array
@@ -13,16 +13,19 @@ try:
 except ImportError:
     from util import get_repository_root
 
-
 if __name__ == "__main__":
-
     # Use these predefined input / output files
     root_dir = get_repository_root()
     INFILE = root_dir / "data" / "ex_5_2-data.csv"
     OUTFILE = root_dir / "outputs" / "ex_5_2-processed.csv"
-    data = np.loadtxt(INFILE)
-    processed = (data - np.mean(data, axis=0)) / np.std(data, axis=0)
-     np.savetxt(OUTFILE, processed)
-    # Complete the data processing steps using numpy here.
 
-    # Save the output to OUTFILE using numpy routines.
+    # Load data from the input file
+    data = np.loadtxt(INFILE, delimiter=",")
+
+    # Shift and scale the data
+    mean = np.mean(data)
+    std_dev = np.std(data)
+    processed_data = (data - mean) / std_dev
+
+    # Save the processed data to OUTFILE using numpy routines
+    np.savetxt(OUTFILE, processed_data, delimiter=",")
